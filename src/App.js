@@ -8,16 +8,18 @@ function App() {
   return (
     <>
       <Header />
-      <Router>
-        <Switch>
-          <Route path="/movie/:id">
-            <Detail />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
+      <section>
+        <Router>
+          <Switch>
+            <Route path="/movie/:id">
+              <Detail />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+      </section>
       <Footer />
     </>
   );
