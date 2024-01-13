@@ -10,8 +10,8 @@ function App() {
       <Header />
       <div className="container">
         <Routes>
-          <Route path="/movie/:id(\d+)" component={Detail} />
-          <Route path="/" component={Home} />
+          <Route path="/movie/:id" element={<Detail />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
       <Footer />
