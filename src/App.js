@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 import Header from "./components/partials/Header";
@@ -8,18 +8,12 @@ function App() {
   return (
     <>
       <Header />
-      <section>
-        <Router>
-          <Switch>
-            <Route path="/movie/:id">
-              <Detail />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </Router>
-      </section>
+      <div className="container">
+        <Routes>
+          <Route path="/movie/:id(\d+)" component={Detail} />
+          <Route path="/" component={Home} />
+        </Routes>
+      </div>
       <Footer />
     </>
   );
