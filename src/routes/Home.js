@@ -74,6 +74,23 @@ function Home() {
   return (
     <div className="inner">
       {loading ? "loading..." : null}
+      <div className="main-advertise-area">
+        <div className="vignette-layer">
+          <img
+            className="vignette-img"
+            src={require("../assets/img/main-advertise-title.webp")}
+            alt="클릭 포스터"
+          />
+          <p className="vignette-info">
+            과로에 시달리는 마이클 뉴먼은 인생의 장면들을 잠시 정지하고
+            빨리감기할 수 있는 리모컨을 우연히 발견하는데...
+          </p>
+          <div className="vignette-btn-area">
+            <button>재생</button>
+            <button>상세정보</button>
+          </div>
+        </div>
+      </div>
       <MovieList movieList={popularMovieList} />
       <MovieList movieList={topRatedMovieList} />
       <SeriesList seriesList={popularSeriesList} />
