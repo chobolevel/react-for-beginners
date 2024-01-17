@@ -72,9 +72,9 @@ function Home() {
     setLoading(false);
   }, []);
   return (
-    <div className="inner">
+    <>
       {loading ? "loading..." : null}
-      <div className="main-advertise-area">
+      <div className="vignette-area">
         <div className="vignette-layer">
           <img
             className="vignette-img"
@@ -85,17 +85,17 @@ function Home() {
             과로에 시달리는 마이클 뉴먼은 인생의 장면들을 잠시 정지하고
             빨리감기할 수 있는 리모컨을 우연히 발견하는데...
           </p>
-          <div className="vignette-btn-area">
-            <button>재생</button>
-            <button>상세정보</button>
-          </div>
+          <button className="vignette-btn">재생하기</button>
         </div>
       </div>
-      <MovieList movieList={popularMovieList} />
-      <MovieList movieList={topRatedMovieList} />
-      <SeriesList seriesList={popularSeriesList} />
-      <SeriesList seriesList={topRatedSeriesList} />
-    </div>
+      <MovieList title={"인기있는 영화"} movieList={popularMovieList} />
+      <MovieList title={"역대 최고의 영화"} movieList={topRatedMovieList} />
+      <SeriesList title={"인기있는 시리즈"} seriesList={popularSeriesList} />
+      <SeriesList
+        title={"역대 최고의 시리즈"}
+        seriesList={topRatedSeriesList}
+      />
+    </>
   );
 }
 
