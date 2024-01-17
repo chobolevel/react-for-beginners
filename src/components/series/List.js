@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Series from "../../classes/Series";
 
 List.propTypes = {
-  seriesList: PropTypes.arrayOf(Series).isRequired,
+  seriesList: PropTypes.arrayOf(PropTypes.instanceOf(Series)).isRequired,
 };
 
 function List({ seriesList }) {

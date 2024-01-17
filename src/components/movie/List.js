@@ -3,7 +3,7 @@ import Movie from "../../classes/Movie";
 import PropTypes from "prop-types";
 
 List.propTypes = {
-  movieList: PropTypes.arrayOf(Movie).isRequired,
+  movieList: PropTypes.arrayOf(PropTypes.instanceOf(Movie)).isRequired,
 };
 
 function List({ movieList }) {
