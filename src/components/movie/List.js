@@ -11,10 +11,10 @@ List.propTypes = {
 function List({ title, movieList }) {
   const [x, setX] = useState(0);
   const handlePrev = () => {
-    setX((cur) => cur - 100);
+    setX((cur) => (cur <= 0 ? 0 : cur - 100));
   };
   const handleNext = () => {
-    setX((cur) => cur + 100);
+    setX((cur) => (cur >= 100 ? 184 : cur + 100));
   };
   return (
     <div className="movie-list">
