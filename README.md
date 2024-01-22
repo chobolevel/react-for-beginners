@@ -1,7 +1,7 @@
 # 영화 정보 프로젝트(InJae)
 
 ## 프로젝트 개요
-> [서비스 링크](https://chobolevel.github.io/react-for-beginners)
+> [서비스 링크](https://chobolevel.github.io/react-for-beginners)<br/>
 > 🚨접속 후 메인 로고를 클릭하여 홈으로 이동하면 확인하실 수 있습니다.(현재 진행중인 프로젝트로 몇가지 기능이 지원되지 않을 수 있습니다.)🚨<br/>
 > [노마드코더] ReactJS로 영화 웹 서비스 만들기 강의 수강 후 진행한 프로젝트입니다.<br/>
 > 공부한 ReactJS를 활용해보기 위한 프로젝트입니다.<br/>
