@@ -18,7 +18,7 @@ function List({ title, seriesList }) {
     return (width * cnt - viewWidth) / viewWidth * 100
   }
   const handlePrev = () => {
-    setX((cur) => cur <= 0 ? cur : cur - 100);
+    setX((cur) => cur <= 100 ? 0 : cur - 100);
   };
   const handleNext = () => {
     setX((cur) => cur + 100 >= getMaxWidth() ? getMaxWidth() : cur + 100);
