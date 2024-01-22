@@ -3,6 +3,7 @@ function ListItem({ trailer }) {
     <a
       href={`https://www.youtube.com/watch?v=${trailer.key}`}
       target="_blank"
+      rel="noreferrer"
       className="trailer-list-item"
     >
       <img
