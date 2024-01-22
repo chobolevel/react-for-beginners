@@ -26,6 +26,7 @@ function App() {
         <Route path="/movie/:id" element={<Detail />} />
         <Route path="/" element={<Home />} />
       </Routes>
+      <div id="preview-modal-wrapper"></div>
       <Footer />
     </>
   );
