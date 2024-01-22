@@ -10,11 +10,18 @@ List.propTypes = {
 
 function List({ title, seriesList }) {
   const [x, setX] = useState(0);
+  const getMaxWidth = () => {
+    const $seriesListContent = document.querySelector('.series-list-content')
+    const viewWidth = getComputedStyle($seriesListContent).width.replace("px", "")
+    const width = getComputedStyle($seriesListContent.childNodes[0]).width.substring(0, getComputedStyle($seriesListContent.childNodes[0]).width.indexOf('px'))
+    const cnt = $seriesListContent.childNodes.length
+    return (width * cnt - viewWidth) / viewWidth * 100
+  }
   const handlePrev = () => {
-    setX((cur) => (cur <= 0 ? 0 : cur - 100));
+    setX((cur) => cur <= 0 ? cur : cur - 100);
   };
   const handleNext = () => {
-    setX((cur) => (cur >= 100 ? 184 : cur + 100));
+    setX((cur) => cur + 100 >= getMaxWidth() ? getMaxWidth() : cur + 100);
   };
   return (
     <div className="series-list">
