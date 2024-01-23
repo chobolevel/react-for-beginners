@@ -146,6 +146,7 @@
 .movie-poster:hover, .series-poster:hover {
   filter: brightness(100%);
 }
+/* trailer */
 .trailer-list-item {
   display: inline-block;
   width: calc(100% / 4);
@@ -169,11 +170,13 @@
   font-weight: bold;
 }
 /* movie detail */
-.movie-detail-wrapper {
+.movie-detail-wrapper
+, .series-detail-wrapper {
   width: 100%;
   margin-bottom: 5rem;
 }
-.movie-detail-wrapper .movie-detail-inner {
+.movie-detail-wrapper .movie-detail-inner
+, .series-detail-wrapper .series-detail-inner {
   width: 100%;
   height: 100%;
   padding: 5rem 0;
@@ -186,7 +189,8 @@
   position: relative;
   z-index: 1;
 }
-.movie-detail-wrapper .movie-detail-inner::before {
+.movie-detail-wrapper .movie-detail-inner::before
+, .series-detail-wrapper .series-detail-inner::before {
   content: '';
   position: absolute;
   top: 0;
@@ -196,16 +200,19 @@
   background: rgba(0, 0, 0, 0.7);
   z-index: 2;
 }
-.movie-detail-wrapper .movie-detail-inner .movie-detail-poster {
+.movie-detail-wrapper .movie-detail-inner .movie-detail-poster
+, .series-detail-wrapper .series-detail-inner .series-detail-poster {
   width: 40rem;
   min-width: 30rem;
   margin-right: 10rem;
   z-index: 3;
 }
-.movie-detail-wrapper .movie-detail-inner .movie-detail-poster img {
+.movie-detail-wrapper .movie-detail-inner .movie-detail-poster img
+, .series-detail-wrapper .series-detail-inner .series-detail-poster img {
   width: 100%;
 }
-.movie-detail-wrapper .movie-detail-inner .movie-detail-info {
+.movie-detail-wrapper .movie-detail-inner .movie-detail-info
+, .series-detail-wrapper .series-detail-inner .series-detail-info {
   max-width: 80rem;
   min-width: 70rem;
   display: flex;
@@ -213,28 +220,33 @@
   gap: 3rem;
   z-index: 3;
 }
-.movie-detail-wrapper .movie-detail-inner .movie-detail-info .movie-title {
+.movie-detail-wrapper .movie-detail-inner .movie-detail-info .movie-title
+, .series-detail-wrapper .series-detail-inner .series-detail-info .series-title {
   font-size: 5rem;
   font-weight: bold;
   margin-bottom: 2rem;
 }
-.movie-detail-wrapper .movie-detail-inner .movie-detail-info p {
+.movie-detail-wrapper .movie-detail-inner .movie-detail-info p
+, .series-detail-wrapper .series-detail-inner .series-detail-info p {
   font-size: 1.4rem;
   line-height: 2rem;
 }
-.movie-detail-wrapper .movie-detail-inner .movie-detail-info p:has(span) {
+.movie-detail-wrapper .movie-detail-inner .movie-detail-info p:has(span)
+, .series-detail-wrapper .series-detail-inner .series-detail-info p:has(span) {
   font-size: 1.4rem;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.movie-detail-wrapper .movie-detail-inner .movie-detail-info p span:first-child {
+.movie-detail-wrapper .movie-detail-inner .movie-detail-info p span:first-child
+, .series-detail-wrapper .series-detail-inner .series-detail-info p span:first-child {
   margin-right: 1rem;
   font-size: 1.6rem;
   font-weight: bold;
   white-space: nowrap;
 }
-.movie-detail-wrapper .movie-detail-inner .movie-detail-info p span:last-child {
+.movie-detail-wrapper .movie-detail-inner .movie-detail-info p span:last-child
+, .series-detail-wrapper .series-detail-inner .series-detail-info p span:last-child {
   color: #ddd;
   line-height: 1.8rem;
 }
