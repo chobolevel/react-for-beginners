@@ -316,14 +316,30 @@
   .movie-list-item, .series-list-item {
     width: calc(100% / 5);
   }
+  .trailer-list-item {
+    width: calc(100% / 3);
+  }
 }
 @media screen and (max-width: 1200px) {
   .movie-list-item, .series-list-item {
     width: calc(100% / 4);
   }
+  .trailer-list-item {
+    width: calc(100% / 2);
+  }
 }
 @media screen and (max-width: 1000px) {
   .movie-list-item, .series-list-item {
     width: calc(100% / 3);
+  }
+}
+@media screen and (max-width: 700px) {
+  .movie-list-item, .series-list-item {
+    width: calc(100% / 2);
+  }
+}
+@media screen and (max-width: 570px) {
+  .trailer-list-item {
+    width: calc(100%);
   }
 }
