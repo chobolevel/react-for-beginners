@@ -9,8 +9,8 @@ function Home() {
   const [loading, setLoading] = useState(false)
   const [nowPlayingMovieList, setNowPlayingMovieList] = useState([])
   const [upcomingMovieList, setUpcomingMovieList] = useState([])
-  const [popularSeriesList, setPopularSeriesList] = useState([])
-  const [topRatedSeriesList, setTopRatedSeriesList] = useState([])
+  const [airingTodaySeriesList, setAiringTodaySeriesList] = useState([])
+  const [onTheAirSeriesList, setOnTheAirSeriesList] = useState([])
   const handleClick = () => {
     alert('아직 지원하지 않는 기능입니다.')
   }
@@ -38,12 +38,11 @@ function Home() {
       }
     )
     const json = await res.json()
-    console.log(json)
     setUpcomingMovieList(json.results.map((movie) => new Movie(movie)))
   }
-  async function fetchPopularSeriesList() {
+  async function fetchAiringTodaySeriesList() {
     const res = await fetch(
-      `https://api.themoviedb.org/3/tv/popular?language=${TmdbEnum.LANGUAGE}&page=1`,
+      `https://api.themoviedb.org/3/tv/airing_today?language=${TmdbEnum.LANGUAGE}&page=1&timezone=${TmdbEnum.TIMEZONE}`,
       {
         headers: {
           accept: 'application/json',
@@ -52,11 +51,11 @@ function Home() {
       }
     )
     const json = await res.json()
-    setPopularSeriesList(json.results.map((series) => new Series(series)))
+    setAiringTodaySeriesList(json.results.map((series) => new Series(series)))
   }
-  async function fetchTopRatedSeriesList() {
+  async function fetchOnTheAirSeriesList() {
     const res = await fetch(
-      `https://api.themoviedb.org/3/tv/top_rated?language=${TmdbEnum.LANGUAGE}&page=1`,
+      `https://api.themoviedb.org/3/tv/on_the_air?language=${TmdbEnum.LANGUAGE}&page=1&timezone=${TmdbEnum.TIMEZONE}`,
       {
         headers: {
           accept: 'application/json',
@@ -65,14 +64,14 @@ function Home() {
       }
     )
     const json = await res.json()
-    setTopRatedSeriesList(json.results.map((series) => new Series(series)))
+    setOnTheAirSeriesList(json.results.map((series) => new Series(series)))
   }
   useEffect(() => {
     setLoading(true)
     fetchNowPlayingMovieList()
     fetchUpcomingMovieList()
-    fetchPopularSeriesList()
-    fetchTopRatedSeriesList()
+    fetchAiringTodaySeriesList()
+    fetchOnTheAirSeriesList()
     setLoading(false)
   }, [])
   return (
@@ -96,8 +95,8 @@ function Home() {
       </div>
       <MovieList title={'현재 상영 중인 영화'} movieList={nowPlayingMovieList} />
       <MovieList title={'한국에서 상영 예정인 영화'} movieList={upcomingMovieList} />
-      <SeriesList title={'인기있는 시리즈'} seriesList={popularSeriesList} />
-      <SeriesList title={'역대 최고의 시리즈'} seriesList={topRatedSeriesList} />
+      <SeriesList title={'오늘 방송하는 시리즈'} seriesList={airingTodaySeriesList} />
+      <SeriesList title={'이번주 방송되는 시리즈'} seriesList={onTheAirSeriesList} />
     </>
   )
 }
