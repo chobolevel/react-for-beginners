@@ -8,6 +8,7 @@ import Movie from "../../classes/Movie"
 
 function Detail() {
   const { id } = useParams()
+  const [loading, setLoading] = useState(false)
   const [movie, setMovie] = useState({})
   const [trailerList, setTrailerList] = useState([])
   const [similarMovieList, setSimilarMovieList] = useState([])
@@ -66,23 +67,34 @@ function Detail() {
     setRecommendationMovieList(json.results.map((movie) => new Movie(movie)))
   }
   useEffect(() => {
+    setLoading(true)
     fetchMovieDetail()
     fetchTrailerList()
     fetchSimilarMovieList()
     fetchRecommendationMovieList()
+    setLoading(false)
   }, [id])
   return (
     <>
-      <MovieDetail movie={movie} />
-      {trailerList.length !== 0 ? (
-        <TrailerList trailerList={trailerList} />
-      ) : null}
-      {similarMovieList.length !== 0 ? (
-        <MovieList title={"비슷한 영화"} movieList={similarMovieList} />
-      ) : null}
-      {recommendationMovieList.length !== 0 ? (
-        <MovieList title={"추천 영화"} movieList={recommendationMovieList} />
-      ) : null}
+      {loading ? (
+        "Loading..."
+      ) : (
+        <>
+          <MovieDetail movie={movie} />
+          {trailerList.length !== 0 ? (
+            <TrailerList trailerList={trailerList} />
+          ) : null}
+          {similarMovieList.length !== 0 ? (
+            <MovieList title={"비슷한 영화"} movieList={similarMovieList} />
+          ) : null}
+          {recommendationMovieList.length !== 0 ? (
+            <MovieList
+              title={"추천 영화"}
+              movieList={recommendationMovieList}
+            />
+          ) : null}
+        </>
+      )}
     </>
   )
 }
