@@ -4,7 +4,7 @@ export default class Movie {
   constructor(movie) {
     this.id = movie.id
     this.posterPath = `https://www.themoviedb.org/t/p/original${movie.poster_path}`
-    this.backDropPath = `https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${movie.backdrop_path}`
+    this.backDropPath = `https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}`
     this.title = movie.title
     this.overview = movie.overview
     this.isAdult = movie.adult
