@@ -1,4 +1,7 @@
 function Detail({ movie }) {
+  const handlePosterError = (e) => {
+    e.target.src = require("../../assets/img/default-poster-img.jpg")
+  }
   return (
     <div className="movie-detail-wrapper">
       <div
@@ -6,7 +9,11 @@ function Detail({ movie }) {
         style={{ background: `url(${movie.backDropPath})` }}
       >
         <div className="movie-detail-poster">
-          <img src={movie.posterPath} alt={movie.title} />
+          <img
+            src={movie.posterPath}
+            alt={movie.title}
+            onError={handlePosterError}
+          />
         </div>
         <div className="movie-detail-info">
           <p className="movie-title">{movie.title}</p>

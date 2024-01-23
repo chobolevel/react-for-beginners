@@ -1,6 +1,9 @@
 import { useState } from "react"
 
 function Detail({ series }) {
+  const handlePosterError = (e) => {
+    e.target.src = require("../../assets/img/default-poster-img.jpg")
+  }
   return (
     <div className="series-detail-wrapper">
       <div
@@ -8,7 +11,11 @@ function Detail({ series }) {
         style={{ background: `url(${series.backDropPath})` }}
       >
         <div className="series-detail-poster">
-          <img src={series.posterPath} alt={series.name} />
+          <img
+            src={series.posterPath}
+            alt={series.name}
+            onError={handlePosterError}
+          />
         </div>
         <div className="series-detail-info">
           <p className="series-title">{series.name}</p>
