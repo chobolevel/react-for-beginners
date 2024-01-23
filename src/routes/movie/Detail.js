@@ -15,7 +15,7 @@ function Detail() {
   const [recommendationMovieList, setRecommendationMovieList] = useState([])
   async function fetchMovieDetail() {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?language=${TmdbEnum.LANGUAGE}&region=${TmdbEnum.REGION}&append_to_response=release_dates`,
+      `https://api.themoviedb.org/3/movie/${id}?language=${TmdbEnum.LANGUAGE}&append_to_response=release_dates`,
       {
         headers: {
           accept: 'application/json',
@@ -66,13 +66,13 @@ function Detail() {
     setRecommendationMovieList(json.results.map((movie) => new Movie(movie)))
   }
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
     setLoading(true)
     fetchMovieDetail()
     fetchTrailerList()
     fetchSimilarMovieList()
     fetchRecommendationMovieList()
     setLoading(false)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }, [id])
   return (
     <>

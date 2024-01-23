@@ -1,21 +1,12 @@
-import { useState } from "react"
-
 function Detail({ series }) {
   const handlePosterError = (e) => {
-    e.target.src = require("../../assets/img/default-poster-img.jpg")
+    e.target.src = require('../../assets/img/default-poster-img.jpg')
   }
   return (
     <div className="series-detail-wrapper">
-      <div
-        className="series-detail-inner"
-        style={{ background: `url(${series.backDropPath})` }}
-      >
+      <div className="series-detail-inner" style={{ background: `url(${series.backDropPath})` }}>
         <div className="series-detail-poster">
-          <img
-            src={series.posterPath}
-            alt={series.name}
-            onError={handlePosterError}
-          />
+          <img src={series.posterPath} alt={series.name} onError={handlePosterError} />
         </div>
         <div className="series-detail-info">
           <p className="series-title">{series.name}</p>
@@ -30,11 +21,11 @@ function Detail({ series }) {
           </p>
           <p>
             <span>관람 연령</span>
-            <span>{series.isAdult ? "성인 관람가" : "전체 관람가"}</span>
+            <span>{series.isAdult ? '성인 관람가' : '전체 관람가'}</span>
           </p>
           <p>
             <span>장르</span>
-            <span>{series.genres?.join(", ")}</span>
+            <span>{series.genres?.join(', ')}</span>
           </p>
           <p>
             <span>추천율(추천수)</span>
@@ -44,7 +35,7 @@ function Detail({ series }) {
           </p>
           <p>
             <span>제작사</span>
-            <span>{series.companies?.map((c) => c.name).join(", ")}</span>
+            <span>{series.companies?.map((c) => c.name).join(', ')}</span>
           </p>
         </div>
       </div>
