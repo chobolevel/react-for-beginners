@@ -44,7 +44,6 @@
   background: url('../assets/img/main-advertise-img.webp');
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
 }
 .vignette-area .vignette-layer {
   width: 100%;
@@ -54,13 +53,27 @@
   gap: 2rem;
   flex-direction: column;
   justify-content: center;
+  position: relative;
+  z-index: 1
+}
+.vignette-area .vignette-layer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, #000, transparent);
+  z-index: 2;
 }
 .vignette-area .vignette-layer .vignette-img {
   width: 40rem;
+  z-index: 3
 }
 .vignette-area .vignette-layer .vignette-info {
   width: 100%;
   font-size: 1.4rem;
+  z-index: 3;
 }
 .vignette-area .vignette-layer .vignette-btn {
   width: 30rem;
@@ -71,6 +84,7 @@
   font-size: 2rem;
   font-weight: bold;
   cursor: pointer;
+  z-index: 3;
 }
 .vignette-area .vignette-layer .vignette-btn:hover {
   background: #006EB3;
