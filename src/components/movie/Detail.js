@@ -1,5 +1,4 @@
 function Detail({ movie }) {
-  console.log(movie)
   return (
     <div className="movie-detail-wrapper">
       <div

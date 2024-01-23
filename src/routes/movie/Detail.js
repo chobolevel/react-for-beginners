@@ -67,6 +67,7 @@ function Detail() {
     setRecommendationMovieList(json.results.map((movie) => new Movie(movie)))
   }
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
     setLoading(true)
     fetchMovieDetail()
     fetchTrailerList()
