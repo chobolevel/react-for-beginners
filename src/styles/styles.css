@@ -356,6 +356,7 @@
 }
 .grid-list-wrapper .grid-list-inner .grid-list-content {
   width: 100%;
+  min-height: 100vh;
 }
 .grid-list-wrapper .grid-list-inner .grid-list-content .grid-list-inner {
   display: grid;
