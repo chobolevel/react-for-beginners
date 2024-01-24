@@ -3,6 +3,7 @@ import Home from './routes/Home'
 import MovieDetail from './routes/movie/Detail'
 import SeriesDetail from './routes/series/Detail'
 import MovieList from './routes/movie/List'
+import SeriesList from './routes/series/List'
 import Header from './components/partials/Header'
 import Footer from './components/partials/Footer'
 import NotFound from './components/error/NotFound'
@@ -29,6 +30,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetail />} />
         <Route path="/movie" element={<MovieList />} />
         <Route path="/series/:id" element={<SeriesDetail />} />
+        <Route path="/series" element={<SeriesList />} />
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
