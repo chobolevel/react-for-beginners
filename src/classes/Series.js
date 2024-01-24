@@ -1,4 +1,4 @@
-import moment from "moment"
+import moment from 'moment'
 
 class Series {
   constructor(series) {
@@ -8,7 +8,7 @@ class Series {
     this.name = series.name
     this.overview = series.overview
     this.isAdult = series.adult
-    this.firstAirDate = moment(series.first_air_date).format("YYYY년 MM월 DD일")
+    this.firstAirDate = moment(series.first_air_date).format('YYYY년 MM월 DD일')
     this.popularity = series.popularity
     this.voteCount = series.vote_count
     this.voteAverage = Math.round(series.vote_average * 10)
@@ -22,6 +22,10 @@ class Series {
     this.seasons = series?.seasons
     this.seasonCnt = series?.number_of_seasons
     this.episodeCnt = series?.number_of_episodes
+    this.casts = series?.credits?.cast.map((cast) => ({
+      ...cast,
+      profilePath: `https://www.themoviedb.org/t/p/original${cast.profile_path}`,
+    }))
   }
 }
 

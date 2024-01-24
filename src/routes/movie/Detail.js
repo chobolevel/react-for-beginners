@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import MovieDetail from '../../components/movie/Detail'
 import MovieList from '../../components/movie/List'
+import CastList from '../../components/cast/List'
 import TrailerList from '../../components/trailer/List'
 import TmdbEnum from '../../enums/TmdbEnum'
 import Movie from '../../classes/Movie'
@@ -15,7 +16,7 @@ function Detail() {
   const [recommendationMovieList, setRecommendationMovieList] = useState([])
   async function fetchMovieDetail() {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${id}?language=${TmdbEnum.LANGUAGE}&append_to_response=release_dates`,
+      `https://api.themoviedb.org/3/movie/${id}?language=${TmdbEnum.LANGUAGE}&append_to_response=release_dates,credits`,
       {
         headers: {
           accept: 'application/json',
@@ -81,6 +82,7 @@ function Detail() {
       ) : (
         <>
           <MovieDetail movie={movie} />
+          {movie.casts && movie.casts.length !== 0 ? <CastList castList={movie.casts} /> : null}
           {trailerList.length !== 0 ? <TrailerList trailerList={trailerList} /> : null}
           {similarMovieList.length !== 0 ? (
             <MovieList title={'비슷한 영화'} movieList={similarMovieList} />

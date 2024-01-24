@@ -94,56 +94,76 @@
   background: #006EB3;
 }
 /* movie-list */
-.movie-list, .series-list, .trailer-list {
+.movie-list, .series-list, .trailer-list, .cast-list {
   width: 100%;
   margin: 2rem 0;
   display: flex;
   flex-direction: column;
 }
-.movie-list-title, .series-list-title, .trailer-list-title {
+.movie-list-title, .series-list-title, .trailer-list-title, .cast-list-title {
   font-size: 1.6rem;
   margin: 2rem 0;
   padding: 0 2rem;
 }
-.movie-list-inner, .series-list-inner, .trailer-list-inner {
+.movie-list-inner, .series-list-inner, .trailer-list-inner, .cast-list-inner {
   width: 100%;
   position: relative;
 }
-.movie-list-inner .prev-btn, .series-list-inner .prev-btn, .trailer-list-inner .prev-btn {
-  display: none;
+.movie-list-inner .prev-btn
+, .series-list-inner .prev-btn
+, .trailer-list-inner .prev-btn
+, .cast-list-inner .prev-btn {
+  display: flex;
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 2rem;
-  text-align: center;
-  line-height: 30rem;
+  font-size: 3rem;
+  align-items: center;
+  justify-content: center;
   width: 3rem;
   height: 100%;
   cursor: pointer;
   z-index: 3;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
 }
-.movie-list-inner:hover .prev-btn, .series-list-inner:hover .prev-btn, .trailer-list-inner:hover .prev-btn {
-  display: block;
+.movie-list-inner:hover .prev-btn
+, .series-list-inner:hover .prev-btn
+, .trailer-list-inner:hover .prev-btn
+, .cast-list-inner:hover .prev-btn {
+  visibility: visible;
   background: rgba(0, 0, 0, 0.3);
 }
-.movie-list-inner .next-btn, .series-list-inner .next-btn, .trailer-list-inner .next-btn {
-  display: none;
+.movie-list-inner .next-btn
+, .series-list-inner .next-btn
+, .trailer-list-inner .next-btn
+, .cast-list-inner .next-btn {
+  display: flex;
   position: absolute;
   top: 0;
   right: 0;
   font-size: 3rem;
-  text-align: center;
-  line-height: 30rem;
+  font-size: 3rem;
+  align-items: center;
+  justify-content: center;
   width: 3rem;
   height: 100%;
   cursor: pointer;
   z-index: 3;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
 }
-.movie-list-inner:hover .next-btn, .series-list-inner:hover .next-btn, .trailer-list-inner:hover .next-btn {
-  display: block;
+.movie-list-inner:hover .next-btn
+, .series-list-inner:hover .next-btn
+, .trailer-list-inner:hover .next-btn
+, .cast-list-inner:hover .next-btn {
+  visibility: visible;
   background: rgba(0, 0, 0, 0.7);
 }
-.movie-list-content, .series-list-content, .trailer-list-content {
+.movie-list-content
+, .series-list-content
+, .trailer-list-content
+, .cast-list-content {
   width: 100%;
   height: 100%;
   white-space: nowrap;
@@ -186,6 +206,36 @@
   right: 2rem;
   font-size: 1.4rem;
   font-weight: bold;
+}
+/* cast */
+.cast-list-item {
+  display: inline-block;
+  width: calc(100% / 8);
+  padding: 0 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1
+}
+.cast-list-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(to top, #000, transparent);
+  z-index: 2;
+}
+.cast-list-item > img {
+  width: 100%;
+  z-index: 3;
+}
+.cast-list-item > p {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 1.4rem;
+  text-shadow: 0 0 10rem #000;
+  z-index: 3;
 }
 /* movie detail */
 .movie-detail-wrapper

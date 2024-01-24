@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import SeriesDetail from '../../components/series/Detail'
 import TrailerList from '../../components/trailer/List'
 import SeriesList from '../../components/series/List'
+import CastList from '../../components/cast/List'
 import TmdbEnum from '../../enums/TmdbEnum'
 import { useParams } from 'react-router-dom'
 import Series from '../../classes/Series'
@@ -14,12 +15,15 @@ function Detail() {
   const [similarSeriesList, setSimilarSeriesList] = useState([])
   const [recommendationSeriesList, setRecommendationSeriesList] = useState([])
   async function fetchSeriesDetail() {
-    const res = await fetch(`https://api.themoviedb.org/3/tv/${id}?language=${TmdbEnum.LANGUAGE}`, {
-      headers: {
-        accept: 'application/json',
-        Authorization: process.env.REACT_APP_TMDB_ACCESS_TOKEN,
-      },
-    })
+    const res = await fetch(
+      `https://api.themoviedb.org/3/tv/${id}?language=${TmdbEnum.LANGUAGE}&append_to_response=credits`,
+      {
+        headers: {
+          accept: 'application/json',
+          Authorization: process.env.REACT_APP_TMDB_ACCESS_TOKEN,
+        },
+      }
+    )
     const json = await res.json()
     setSeries(new Series(json))
   }
@@ -78,6 +82,7 @@ function Detail() {
       ) : (
         <>
           <SeriesDetail series={series} />
+          {series.casts && series.casts.length !== 0 ? <CastList castList={series.casts} /> : null}
           {trailerList.length !== 0 ? <TrailerList trailerList={trailerList} /> : null}
           {similarSeriesList.length !== 0 ? (
             <SeriesList title={'비슷한 시리즈'} seriesList={similarSeriesList} />

@@ -25,5 +25,9 @@ export default class Movie {
       : null
     this.status = movie?.status
     this.voices = movie?.spoken_languages
+    this.casts = movie?.credits?.cast.map((cast) => ({
+      ...cast,
+      profilePath: `https://www.themoviedb.org/t/p/original${cast.profile_path}`,
+    }))
   }
 }
