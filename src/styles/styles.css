@@ -302,6 +302,81 @@
 .error-page-wrapper .error-page-inner > button:hover {
   background: #006EB3;
 }
+/* grid-list-wrapper */
+.grid-list-wrapper {
+  width: 100%;
+}
+.grid-list-wrapper .grid-list-inner {
+  width: 100%;
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.grid-list-wrapper .grid-list-inner .load-more-btn {
+  all: unset;
+  width: 20rem;
+  height: 4rem;
+  margin: 5rem 0;
+  margin-left: calc(50% - 10rem);
+  text-align: center;
+  border-radius: 3rem;
+  background: #00a7f6;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.grid-list-wrapper .grid-list-inner .load-more-btn:hover {
+  background: #006EB3;
+}
+.grid-list-wrapper .grid-list-inner .input-select-area {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.grid-list-wrapper .grid-list-inner .input-select-area .input-item {
+  width: 10rem;
+  height: 3rem;
+}
+.grid-list-wrapper .grid-list-inner .input-select-area .input-item > label {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.grid-list-wrapper .grid-list-inner .input-select-area .input-item > input[type=radio] {
+  display: none;
+}
+.grid-list-wrapper .grid-list-inner .input-select-area .input-item > input[type=radio]:checked + label {
+  font-size: 1.1rem;
+  border-bottom: 0.2rem solid #00a7f6;
+}
+.grid-list-wrapper .grid-list-inner .grid-list-content {
+  width: 100%;
+}
+.grid-list-wrapper .grid-list-inner .grid-list-content .grid-list-inner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2rem;
+}
+.grid-list-wrapper .grid-list-inner .grid-list-content .grid-list-inner .grid-list-item {
+  width: 100%;
+  cursor: pointer;
+  filter: brightness(70%);
+  transition: all 0.3s ease-in-out;
+}
+.grid-list-wrapper .grid-list-inner .grid-list-content .grid-list-inner .grid-list-item:hover {
+  filter: brightness(100%);
+}
+.grid-list-wrapper .grid-list-inner .grid-list-content .grid-list-inner .grid-list-item .grid-list-item-inner {
+  width: 100%;
+}
+.grid-list-wrapper .grid-list-inner .grid-list-content .grid-list-inner .grid-list-item .grid-list-item-inner > img {
+  width: 100%;
+}
 /* footer */
 .footer {
   width: 100%;

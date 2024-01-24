@@ -13,9 +13,7 @@ function Header({ isTop }) {
             <Link to="/">InJae</Link>
           </li>
           <li>
-            <Link to="/movie" onClick={handleClick}>
-              영화
-            </Link>
+            <Link to="/movie">영화</Link>
           </li>
           <li>
             <Link to="/series" onClick={handleClick}>
