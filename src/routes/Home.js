@@ -4,6 +4,7 @@ import TmdbEnum from '../enums/TmdbEnum'
 import Movie from '../classes/Movie'
 import SeriesList from '../components/series/List'
 import Series from '../classes/Series'
+import moment from 'moment'
 
 function Home() {
   const [loading, setLoading] = useState(false)
@@ -42,7 +43,11 @@ function Home() {
   }
   async function fetchAiringTodaySeriesList() {
     const res = await fetch(
-      `https://api.themoviedb.org/3/tv/airing_today?language=${TmdbEnum.LANGUAGE}&page=1&timezone=${TmdbEnum.TIMEZONE}`,
+      `https://api.themoviedb.org/3/discover/tv?language=${
+        TmdbEnum.LANGUAGE
+      }&page=1&with_origin_country=${TmdbEnum.ORIGIN_COUNTRY}&air_date.gte=${moment().format(
+        'YYYY-MM-DD'
+      )}&air_date.lte=${moment().format('YYYY-MM-DD')}`,
       {
         headers: {
           accept: 'application/json',
@@ -54,8 +59,11 @@ function Home() {
     setAiringTodaySeriesList(json.results.map((series) => new Series(series)))
   }
   async function fetchOnTheAirSeriesList() {
+    const startThisWeek = moment().startOf('week')
+    const firstOfWeek = startThisWeek.add(1, 'day').format('YYYY-MM-DD')
+    const lastOfWeek = startThisWeek.add(6, 'day').format('YYYY-MM-DD')
     const res = await fetch(
-      `https://api.themoviedb.org/3/tv/on_the_air?language=${TmdbEnum.LANGUAGE}&page=1&timezone=${TmdbEnum.TIMEZONE}`,
+      `https://api.themoviedb.org/3/discover/tv?language=${TmdbEnum.LANGUAGE}&page=1&with_origin_country=${TmdbEnum.ORIGIN_COUNTRY}&air_date.gte=${firstOfWeek}&air_date.lte=${lastOfWeek}`,
       {
         headers: {
           accept: 'application/json',
