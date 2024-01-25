@@ -5,15 +5,17 @@ import Movie from '../classes/Movie'
 import SeriesList from '../components/series/List'
 import Series from '../classes/Series'
 import moment from 'moment'
+import { useNavigate } from 'react-router-dom'
 
 function Home() {
+  const navtigate = useNavigate()
   const [loading, setLoading] = useState(false)
   const [nowPlayingMovieList, setNowPlayingMovieList] = useState([])
   const [upcomingMovieList, setUpcomingMovieList] = useState([])
   const [airingTodaySeriesList, setAiringTodaySeriesList] = useState([])
   const [onTheAirSeriesList, setOnTheAirSeriesList] = useState([])
   const handleClick = () => {
-    alert('아직 지원하지 않는 기능입니다.')
+    navtigate('/movie/9339')
   }
   async function fetchNowPlayingMovieList() {
     const res = await fetch(
@@ -97,7 +99,7 @@ function Home() {
             우연히 발견하는데...
           </p>
           <button className="vignette-btn" onClick={handleClick}>
-            재생하기
+            상세보기
           </button>
         </div>
       </div>
