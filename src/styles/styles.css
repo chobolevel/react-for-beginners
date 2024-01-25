@@ -292,6 +292,7 @@
 , .series-detail-wrapper .series-detail-inner .series-detail-info .series-title {
   font-size: 5rem;
   font-weight: bold;
+  line-height: 6rem;
   margin-bottom: 2rem;
 }
 .movie-detail-wrapper .movie-detail-inner .movie-detail-info p
