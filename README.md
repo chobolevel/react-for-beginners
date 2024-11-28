@@ -19,5 +19,5 @@
 
 ## 프로젝트 진행한 이유
 
-> + 노마드코더의 react-for-beginners 강의를 수강 후 배운 기술들을 직접 활용해 보고자 진행하였습니다.
+> + [노마드코더의 react-for-beginners 강의](https://nomadcoders.co/react-for-beginners)를 수강 후 배운 기술들을 직접 활용해 보고자 진행하였습니다.
 > + 주제는 당시 관심이 많았던 영화 주제로 선정하였으며 레이아웃은 쿠팡 플레이를 참고하였습니다.
